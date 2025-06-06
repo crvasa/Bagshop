@@ -1,0 +1,37 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "cd src && nodemon server.ts",
+        "test": "echo \"Error: no test specified\" && exit"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "dependencies": {
+        "bcryptjs": "^3.0.2",
+        "cors": "^2.8.5",
+        "dotenv": "^16.5.0",
+        "express": "^4.21.2",
+        "express-async-handler": "^1.2.0",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^8.14.1",
+        "typescript": "^5.8.2"
+    },
+    "devDependencies": {
+        "@types/bcryptjs": "^2.4.6",
+        "@types/cors": "^2.8.17",
+        "@types/dotenv": "^6.1.1",
+        "@types/express": "^5.0.1",
+        "@types/jsonwebtoken": "^9.0.9",
+        "@types/mongoose": "^5.11.96",
+        "@types/ms": "^2.1.0",
+        "@types/webidl-conversions": "^7.0.3",
+        "@types/whatwg-url": "^13.0.0",
+        "nodemon": "^3.1.9",
+        "ts-node": "^10.9.2"
+    }
+}

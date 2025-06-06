@@ -1,0 +1,50 @@
+.container{
+    margin-top: 1rem;
+    display: flex;
+    margin: 0 2rem 6rem 2rem;
+    flex-wrap: wrap;
+    margin-right: 30rem;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.button-container{
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+}
+.buttons{
+    margin: 2rem;
+    width: 25rem;
+}
+
+button{
+    color: white;
+    background-color: #e72929;
+    width: 75%;
+    height: 3rem;
+    opacity: 0.8;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 2px 2px 2px 2px grey;
+}
+
+
+button:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+h1{
+    font-size: 1.3rem;
+}
