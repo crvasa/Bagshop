@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,18 +8,13 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./default-button.component.css'],
   imports: [CommonModule]
 })
-export class DefaultButtonComponent implements OnInit {
-
+export class DefaultButtonComponent {
   @Input() type: 'submit' | 'button' = 'submit';
   @Input() text: string = 'Submit';
-  @Input() bgColor = '#e72929';
-  @Input() color = 'white';
-  @Input() fontSizeRem = 1.3;
-  @Input() widthRem = 12;
+  @Input() bgColor: string = '#e72929';
+  @Input() color: string = 'white';
+  @Input() fontSizeRem: number = 1.3;
+  @Input() widthRem: number = 12;
 
-  @Output() onClick = new EventEmitter();
-
-  constructor() {}
-
-  ngOnInit(): void {}
+  @Output() onClick = new EventEmitter<void>();
 }

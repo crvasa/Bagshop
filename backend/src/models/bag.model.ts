@@ -5,11 +5,11 @@ export interface Bag extends Document {
     id: number;
     name: string;
     price: number;
-    tags: string[];  // Array di stringhe per i tag
+    tags: string[];
     favorite: boolean;
-    stars: number;
+    description: string; 
     imageUrl: string;
-    origins: string[];  // Array di stringhe per le origini
+    origins: string[];
     cookTime: string;
 }
 
@@ -20,7 +20,7 @@ export const BagSchema = new Schema<Bag>(
         price: { type: Number, required: true },
         tags: { type: [String] },  // Array di stringhe per i tag
         favorite: { type: Boolean, default: false },
-        stars: { type: Number, required: true },
+        description: { type: String, required: true },
         imageUrl: { type: String, required: true },
         origins: { type: [String], required: true },  // Array di stringhe per le origini
         cookTime: { type: String, required: true },

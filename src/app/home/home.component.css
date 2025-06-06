@@ -1,86 +1,65 @@
-ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    list-style-type: none;
-    padding: 0;
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
 }
-
-
-li a:hover{
-    opacity: 0.9;
-    cursor: pointer;
-}
-
 
 ul li a {
-    height: 35rem; /* Cambiato da 20rem per adattarsi al contenuto */
-    width: 21rem;
-    border: 1px solid whitesmoke;
-    border-radius: 1rem;
-    margin: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    color: brown;
-    text-decoration: none; /* Per evitare sottolineature */
+  height: 35rem;
+  width: 21rem;
+  border: 1px solid whitesmoke;
+  border-radius: 1rem;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #803144;
+  text-decoration: none;
 }
 
-ul li a img {
-    width: 100%;
-    height: 25rem; /* Mantiene il rapporto d'aspetto dell'immagine */
-    display: block;
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-.content {
-    padding: .5rem 1rem;
-    position: relative;
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-
-.favorite {
-    position: absolute;
-    top: .5rem;
-    right: 1rem;
-    font-size: 1.2rem;
+.bottom-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  border-top-right-radius: 1rem;
+  opacity: 70%;
 }
 
-
-.favorite.not{
-    color: grey;
-}
-.name {
-    color: red; /* O qualsiasi altro colore contrastante */
-    font-size: 1.2rem;
+.image-container:hover .bottom-info {
+  transform: translateY(0);
 }
 
-.product-item-footer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.bottom-info .name {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #3E3E3E;
 }
 
-.origins{
-    flex:9;
-}
-
-.origins span{
-    border-radius: 2rem;
-    background-color: whitesmoke;
-    display: inline-block;
-    font-size: .7rem;
-    color: grey;
-    margin-right: .3rem;
-}
-
-.bag-time{
-    font-size: .8rem;
-    flex: 3;
-    text-align: right;
-}
-
-.price{
-    color: #414141;
-    margin-top: .7rem;
+.bottom-info .price {
+  font-size: 1rem;
+  color: green;
 }

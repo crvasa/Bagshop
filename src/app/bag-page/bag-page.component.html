@@ -1,38 +1,44 @@
-<app-not-found [visible]="!bag" notFoundMassage="Product Not Found" resetLinkText="Back To Homepage"></app-not-found>
+<app-not-found 
+  [visible]="!bag" 
+  notFoundMassage="Product Not Found" 
+  resetLinkText="Back To Homepage">
+</app-not-found>
+
 <div *ngIf="bag" class="container">
-    <img [src]="bag.imageUrl" [alt]="bag.name"/>
+  <div class="image-wrapper">
+    <img [src]="bag.imageUrl" [alt]="bag.name" />
+  </div>
 
-    <div class ="details">
-        <div class ="header">
-            <span class="name">
-                {{bag.name}}
-            </span>
-            <span class="favorite not">
-                &#10084;
-            </span>
-        </div>
-        
-        <div class="origins">
-            <span *ngFor="let origin of bag.origins">
-                {{origin}}
-            </span>
-        </div>
+  <div class="details">
+    <header class="header">
+      <h2 class="name">{{ bag.name }}</h2>
+      <span class="favorite not">&#10084;</span>
+    </header>
 
-        <div class="tags">
-            <app-tags [bagPageTags]="bag.tags" justifyContent = "start"></app-tags>
-        </div>
+    <section class="origins">
+      <span *ngFor="let origin of bag.origins" class="origin-tag">
+        {{ origin }}
+      </span>
+    </section>
 
-        <div class="cookTime">
-            <span>
-                time to work about <strong>{{bag.cookTime}}</strong> minutes
-            </span>
-        </div>
-        <div class="price">
-            <span>
-                {{bag.price| currency}}
-            </span>
-        </div>
-        <button (click)="addToCart()"> Add to Cart</button>
-    </div>
+    <section class="cookTime">
+      <span>
+        Tempo di realizzazione: <strong>{{ bag.cookTime }}</strong>
+      </span>
+    </section>
+
+    <section class="price">
+      <span>
+        {{ bag.price | currency }}
+      </span>
+    </section>
+
+    <section class="description">
+      <p>
+        {{ bag.description }}
+      </p>
+    </section>
+
+    <button (click)="addToCart()">Aggiungi al carrello</button>
+  </div>
 </div>
-

@@ -1,7 +1,9 @@
 .container{
-    position: relative;
-    width: 35rem;
+    position: absolute;
+    width: 50rem;
     height: 22rem;
+    margin-left: 5rem;
+    margin-top: 7rem;
     text-align: center;
 }
 

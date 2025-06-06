@@ -1,0 +1,49 @@
+.container{
+    margin-top: 1rem;
+    display: flex;
+    margin: 0 2rem 6rem 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 30rem;
+}
+
+.content{
+    width: 70rem;
+    margin-right: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.content,form{
+    display: flex;
+    flex-direction: column;
+}
+
+form{
+    width: 100%;
+}
+
+.summary {
+    width: 50%;
+  display: flex;
+  margin-top: 0.7rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summary h3 {
+  margin: 0 1rem 0 0;
+}
+
+.summary span {
+  font-size: 1.2rem;
+}
+.button-container{
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+}
+.buttons{
+    margin: 2rem;
+    width: 25rem;
+}

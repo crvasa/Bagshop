@@ -1,0 +1,20 @@
+<div class="container">
+  <div *ngIf="orders.length > 0; else noOrders">
+    <h1>I tuoi ordini</h1>
+
+    <div *ngFor="let order of orders" class="order-card">
+      <h3>Ordine #{{ order._id }}</h3>
+      <p><strong>Data:</strong> {{ order.createdAt | date:'medium' }}</p>
+      <p><strong>Nome:</strong> {{ order.name }}</p>
+      <p><strong>Indirizzo:</strong> {{ order.address }}</p>
+      <p><strong>Stato:</strong> {{ order.status }}</p>
+      <p *ngIf="order.paymentId"><strong>Pagamento:</strong> {{ order.paymentId }}</p>
+      <order-items-list [order]="order"></order-items-list>
+      <hr />
+    </div>
+  </div>
+
+  <ng-template #noOrders>
+    <p>Nessun ordine trovato.</p>
+  </ng-template>
+</div>

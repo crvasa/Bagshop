@@ -1,29 +1,47 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+
 import { BagService } from '../services/bag/bag.service';
 import { Bag } from '../shared/models/bag';
-import { ActivatedRoute } from '@angular/router';
+
+import { TagsComponent } from '../tags/tags.component';
+import { NotFoundComponent } from '../not-found/not-found.component';
+import { RouterModule } from '@angular/router';
+
 @Component({
   selector: 'app-home',
-  standalone: false,
+  standalone: true,
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css'],
+  imports: [
+    CommonModule,
+    RouterModule,
+    TagsComponent,
+    NotFoundComponent
+  ]
 })
-export class HomeComponent implements OnInit{
-  bags: Bag[]=[]
-  constructor (private bagService: BagService, private route: 
-  ActivatedRoute){}
+export class HomeComponent implements OnInit {
+  bags: Bag[] = [];
 
-  ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      if (params['searchTerm'])  
-        this.bags = this.bagService.getAllBagsBySearchTerm(params['searchTerm']); 
-
-      else if(params['tag'])
-        this.bags =this.bagService.getAllBagsByTag(params['tag']);
-
-      else
-        this.bags = this.bagService.getAll();
-    })
-
-  }
+  constructor(private bagService: BagService, activatedRoute: ActivatedRoute) {
+    activatedRoute.params.subscribe((params) => {
+       let bagsObservable: Observable<Bag[]>;
+ 
+       if (params['searchTerm']) {
+          bagsObservable = this.bagService.getAllBagsBySearchTerm(params['searchTerm']);
+       } else if (params['tag']) {
+          bagsObservable = this.bagService.getAllBagsByTag(params['tag']);
+       } else {
+          bagsObservable = this.bagService.getAll(); // Default route
+       }
+ 
+       bagsObservable.subscribe((serverBags) => {
+          console.log('BORSE DAL SERVER:', serverBags);
+          this.bags = serverBags;
+       });
+    });
+ }
+  ngOnInit(): void {}
 }

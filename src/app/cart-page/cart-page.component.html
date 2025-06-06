@@ -1,45 +1,40 @@
-<app-not-found [visible]="!cart || cart.items.length <=0"
-notFoundMassage= "Cart Page Is Empty!"
-resetLinkText= "Go to Homepage"
-></app-not-found>
-<div *ngIf="cart && cart.items.length >0" class=" container">
-    <ul>
-        <li *ngFor="let cartItem of cart.items">
-            <div>
-                <img [src]="cartItem.bag.imageUrl" [alt]="cartItem.bag.name">
-            </div>
-            <div>
-                <a routerLink="/bag/{{cartItem.bag.id}}">
-                    {{cartItem.bag.name}}
-                </a>
-            </div>
-            <div>
-                <select #selectQuantity (change)="changeQuantity(cartItem, selectQuantity.value)">                <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                </select>
-            </div>
-    
-            <div>
-                {{cartItem.price | currency}}
-            </div>
-    
-    
-            <div>
-                <button class ="remove-button" (click)="removeFromCart(cartItem)">
-                    Remove
-                </button>
-            </div>
-        </li>
-    </ul>
-    
-    <div class="checkout">
-        <div>
-            <div class="bags-count">{{cart.items.length}}</div>
-            <div class="total-price">{{cart.totalPrice | currency}}</div>
-        </div>
+<app-not-found
+  [visible]="!cart || cart.items.length <= 0"
+  notFoundMassage="Cart Page Is Empty!"
+  resetLinkText="Go to Homepage">
+</app-not-found>
+
+<div class="container" *ngIf="cart && cart.items.length > 0">
+  <ul>
+    <li *ngFor="let cartItem of cart.items">
+      <div>
+        <img [src]="cartItem.bag.imageUrl" [alt]="cartItem.bag.name" />
+      </div>
+      <div>
+        <a [routerLink]="['/bag', cartItem.bag.id]">{{ cartItem.bag.name }}</a>
+      </div>
+      <div>
+        <select #quantitySelect [value]="cartItem.quantity"
+                (change)="changeQuantity(cartItem, quantitySelect.value)">
+          <option *ngFor="let i of [1,2,3,4,5]" [value]="i">{{ i }}</option>
+        </select>
+      </div>
+      <div>{{ cartItem.price | currency }}</div>
+      <div>
+        <button class="remove-button" (click)="removeFromCart(cartItem)">
+          Remove
+        </button>
+      </div>
+    </li>
+  </ul>
+
+  <div class="checkout">
+    <div>
+      <div class="bags-count">{{ cart.totalCount }}</div>
+      <div class="total-price">{{ cart.totalPrice | currency }}</div>
     </div>
+    <a routerLink="/checkout">
+      <default-button text="Vai al Pagamento"></default-button>
+    </a>
+  </div>
 </div>

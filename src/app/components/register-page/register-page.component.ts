@@ -55,21 +55,18 @@ export class RegisterPageComponent implements OnInit {
     return this.registerForm.controls;
   }
 
-  submit() {
-    this.isSubmitted = true;
-    if (this.registerForm.invalid) return;
+submit() {
+  this.isSubmitted = true;
+  if (this.registerForm.invalid) return;
 
-    const fv = this.registerForm.value;
-    const user: IUserRegister = {
-      name: fv.name,
-      email: fv.email,
-      password: fv.password,
-      confirmPassword: fv.confirmPassword,
-      address: fv.address
-    };
+  const fv = this.registerForm.value;
 
-    this.userService.register(user).subscribe(() => {
-      this.router.navigateByUrl(this.returnUrl);
-    });
-  }
+  // ✂️ Non inviare confirmPassword
+  const { name, email, password, address } = fv;
+
+  this.userService.register({ name, email, password, address }).subscribe(() => {
+    this.router.navigateByUrl(this.returnUrl);
+  });
+}
+
 }

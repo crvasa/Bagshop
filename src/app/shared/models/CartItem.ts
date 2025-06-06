@@ -1,14 +1,12 @@
 import { Bag } from "./bag";
 
-export class CartItem{
-    constructor(bag: Bag){
-        this.bag= bag;
-        this.price;
-    }
-    bag:Bag;
+export class CartItem {
+    bag: Bag;
     quantity: number = 1;
+    price: number;
 
-    get price():number{
-        return this.bag.price * this.quantity;
+    constructor(bag: Bag) {
+        this.bag = bag;
+        this.price = this.bag.price; // Ora `bag` è già inizializzato
     }
 }

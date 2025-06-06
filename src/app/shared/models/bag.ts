@@ -4,7 +4,7 @@ export class Bag{
     price!:number;
     tags?:string[];
     favorite: boolean= false;
-    stars: number=0;
+    description!: string;
     imageUrl!: string;
     origins!:string[];
     cookTime!: string;

@@ -1,12 +1,53 @@
 <header>
-    <div class=" container">
-        <a hfre ="#" routerLink ="/" class="logo"> Shop di cricri</a>
-        <nav>
-            <ul>
-                <li>
-                    <a href ="#" routerLink ="/cart-page"> Cart</a>
-                </li>
-            </ul>
-        </nav>
+  <div class="header-container">
+    <!-- Colonna sinistra vuota per bilanciare il layout -->
+    <div class="left-space"></div>
+
+<div class="hamburger-icon" (click)="toggleSidebar()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<div class="overlay" [class.active]="sidebarOpen" (click)="closeSidebar()"></div>
+
+<div class="sidebar-menu" [class.open]="sidebarOpen">
+  <a routerLink="/" (click)="closeSidebar()">Home</a>
+  <a routerLink="/contatti" (click)="closeSidebar()">Contatti</a>
+  <a routerLink="/chisiamo" (click)="closeSidebar()">Chi Siamo</a>
+
+</div>
+
+
+    <div class="logo-wrapper">
+      <img src="assets/images/logo.jpg" alt="Logo" class="logo" />
     </div>
+
+    <!-- Icone + barra di ricerca a destra -->
+    <div class="right-wrapper">
+      <app-search class="header-search"></app-search>
+      <ul>
+        <li *ngIf="!isAuth">
+          <a routerLink="/login">
+            <img src="assets/images/login.png" alt="Login Icon" class="icon" />
+          </a>
+        </li>
+<li *ngIf="isAuth" class="menu-container" (click)="toggleUserMenu()" tabindex="0">
+  <span class="username">{{ user?.name }}</span>
+  <div class="user-menu" *ngIf="userMenuOpen">
+    <a routerLink="/orders" (click)="closeUserMenu()">🧾 I tuoi ordini</a>
+    <a (click)="logout2()">🚪 Logout</a>
+  </div>
+</li>
+        <li>
+          <a routerLink="/cart-page">
+            <img src="assets/images/carrello.png" alt="Carrello Icon" class="icon" />
+            <span *ngIf="cartQuantity > 0">{{ cartQuantity }}</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Barra di ricerca compatta -->
+    </div>
+  </div>
 </header>

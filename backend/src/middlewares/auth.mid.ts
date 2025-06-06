@@ -1,15 +1,23 @@
-import { verify } from "jsonwebtoken";
-import { HTTP_UNAUTHORIZED } from "../constants/http_status";
+import { Request, Response, NextFunction, RequestHandler } from 'express';
+import { verify } from 'jsonwebtoken';
+import { HTTP_UNAUTHORIZED } from '../constants/http_status';
 
-export default(req: any, res: any, next: any)=>{
-    const token= req.heanders.access_token as string;
-    if(!token) return res.status(HTTP_UNAUTHORIZED).send();
+export const auth: RequestHandler = (req: Request, res: Response, next: NextFunction): void => {
+  const authHeader = req.headers.authorization;
 
-    try{
-        const decodedUser= verify(token, process.env.JTW_SECRET!);
-        req.user=decodedUser;
-    } catch (error){
-        res.status(HTTP_UNAUTHORIZED).send();
-    }
-    return next();
-}
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    res.status(HTTP_UNAUTHORIZED).json({ message: 'Token mancante' });
+    return;
+  }
+
+  const token = authHeader.split(' ')[1];
+
+  try {
+    const decodedUser = verify(token, process.env.JWT_SECRET || 'fallback-secret');
+    (req as any).user = decodedUser;
+    next();
+  } catch (error) {
+    console.log('Token non valido ricevuto:', token);
+    res.status(HTTP_UNAUTHORIZED).json({ message: 'Token non valido' });
+  }
+};

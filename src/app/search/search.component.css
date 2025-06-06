@@ -9,8 +9,8 @@ div{
 div input{
     border-radius: 10rem 0 0 10rem;
     border: none;
-    height: 3rem;
-    width: 20rem;
+    height: .70rem;
+    width: 10rem;
     background-color: #f1f1f1;
     padding: 1.2rem;
     font-size: 1rem;
@@ -21,18 +21,25 @@ div input{
 
 div button{
     color: grey;
-    height: 3rem;
-    width: 5rem;
+    height: 2.3rem;
+    width: 2rem;
     font-size: 1rem;
     border-radius: 0 10rem 10rem 0;
     border: none;
-    background-color: red;
+    background-color: #803144;
     color: white;
     opacity: .8;
     outline: none;
 }
 
 div button:hover{
-    opacity: 1;
+    opacity: 5;
     cursor: pointer;
+}
+
+
+.icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
 }

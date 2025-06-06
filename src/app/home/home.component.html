@@ -1,34 +1,15 @@
-<app-search></app-search>
 <app-tags></app-tags>
-<app-not-found [visible]="!bags || bags.length <=0" resetLinkText="Reset Search" ></app-not-found>
+<app-not-found [visible]="!bags || bags.length <= 0" resetLinkText="Reset Search"></app-not-found>
 <ul>
-    <li *ngFor="let bag of bags">
-      <a routerLink="/bag/{{bag.id}}">
-        <img [src]="bag.imageUrl" alt="Borsa">
-        <div class=" content">
-            <div class="name">
-                {{bag.name}}
-            </div>
-            <span class=" favorite {{bag.favorite?'':'not'}}">
-                &#10084;
-            </span>
-            <div class="product-item-footer">
-                <div class="origins">
-                    <span *ngFor="let origins of bag.origins">
-                        {{origins}}
-                    </span>
-                </div>
-                <div class="bag-time">
-                    <span>🕞</span>
-                    {{bag.cookTime}}
-                </div>
-            </div>
-            <div class="price">
-                <span>
-                    {{bag.price|currency}}
-                </span>
-            </div>
+  <li *ngFor="let bag of bags">
+    <a routerLink="/bag/{{bag.id}}">
+      <div class="image-container">
+        <img [src]="bag.imageUrl" alt="bag.name">
+        <div class="bottom-info">
+          <div class="name">{{ bag.name }}</div>
+          <div class="price">{{ bag.price | currency }}</div>
         </div>
-      </a>
-    </li>
+      </div>
+    </a>
+  </li>
 </ul>
