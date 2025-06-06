@@ -1,3 +1,4 @@
+
 .header-container {
   display: flex;
   align-items: center;
@@ -13,11 +14,15 @@
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 200px; /* Aumenta leggermente lo spazio per il logo */
+  padding: 0.5rem 0;
 }
 
 .logo {
-  width: 150px;
-  height: auto;
+  height: 180px; /* Logo più grande */
+  width: auto;
+  object-fit: contain;
 }
 
 .right-wrapper {
@@ -77,7 +82,7 @@
 }
 
 .hamburger-menu {
-   margin-top: 3.8rem;
+  margin-top: 3.9rem;
   position: relative;
   font-size: 1.5rem;
   cursor: pointer;
@@ -89,8 +94,8 @@
 
 /* Icona hamburger elegante */
 .hamburger-icon {
-  margin-top: 3.9rem;
-  position: fixed;
+  margin-top: 3.7rem;
+  position: absolute;
   top: 1rem;
   left: 1rem;
   z-index: 1100;
