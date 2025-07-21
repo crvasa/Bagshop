@@ -1,15 +1,15 @@
 {
-  "name": "provafood2",
+  "name": "bagpage",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-"start": "ng serve --proxy-config proxy.conf.json",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "serve:ssr": "node dist/provafood2/server/main.js",
-    "build:ssr": "ng build && ng run provafood2:server",
+    "serve:ssr": "node dist/bagpage/server/main.js",
+    "build:ssr": "ng build && ng run bagpage:server",
     "test": "ng test",
-    "serve:ssr:provafood2": "node dist/provafood2/server/server.mjs"
+    "serve:ssr:bagpage": "node dist/bagpage/server/server.mjs"
   },
   "private": true,
   "dependencies": {
@@ -21,7 +21,9 @@
     "@angular/platform-browser": "^19.2.5",
     "@angular/platform-browser-dynamic": "^19.2.5",
     "@angular/platform-server": "^19.2.5",
+    "@angular/pwa": "^19.2.15",
     "@angular/router": "^19.2.5",
+    "@angular/service-worker": "^19.2.5",
     "@angular/ssr": "^19.2.11",
     "express": "^4.18.2",
     "leaflet": "^1.9.4",

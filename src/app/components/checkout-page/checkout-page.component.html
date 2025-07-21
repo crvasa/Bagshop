@@ -2,16 +2,20 @@
   <div class="checkout-content">
     <h1>Ordine</h1>
 
-    <form [formGroup]="checkoutForm">
-      <text-input [control]="fc.name" label="Name"></text-input>
-      <text-input [control]="fc.address" label="Address"></text-input>
-    </form>
+    <div class="grid-layout">
+      <div class="form-section">
+        <form [formGroup]="checkoutForm">
+          <text-input [control]="fc.name" label="Name"></text-input>
+          <text-input [control]="fc.address" label="Address"></text-input>
+        </form>
+      </div>
+
+      <div class="map-section">
+        <map [order]="order"></map>
+      </div>
+    </div>
 
     <order-items-list [order]="order"></order-items-list>
-
-    <div class="map-wrapper">
-      <map [order]="order"></map>
-    </div>
 
     <div class="checkout-buttons">
       <button (click)="createOrder()">Vai al pagamento</button>

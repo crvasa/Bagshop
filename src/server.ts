@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 import render from './main.server'; // NON passare argomenti a render()
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
-const browserDistFolder = resolve(serverDistFolder, '../browser');
+const browserDistFolder = resolve(__dirname, '../bagpage/browser');
 
 const app = express();
 

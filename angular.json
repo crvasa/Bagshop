@@ -2,8 +2,8 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {
-    "provafood2": {
+  "projects": { 
+    "bagpage":{
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/provafood2",
+            "outputPath": "dist/bagpage",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -53,7 +53,8 @@
                   "maximumWarning": "4kB",
                   "maximumError": "8kB"
                 }
-              ]
+              ],
+              "serviceWorker": "ngsw-config.json"
             },
             "development": {
               "optimization": false,
@@ -67,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "provafood2:build:production"
+              "buildTarget": "bagpage:build:production"
             },
             "development": {
-              "buildTarget": "provafood2:build:development"
+              "buildTarget": "bagpage:build:development"
             },
             "options": {
               "proxyConfig": "proxy.conf.json"
@@ -81,9 +82,9 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/provafood2/server",
+            "outputPath": "dist/bagpage/server",
             "main": "src/main.server.ts",
-            "tsConfig": "tsconfig.server.json",
+            "tsConfig": "tsconfig.server.json"
           },
           "configurations": {
             "production": {
@@ -125,4 +126,5 @@
   "cli": {
     "analytics": "d262ba23-35ec-40c8-951f-83b9b0956ee4"
   }
+  
 }

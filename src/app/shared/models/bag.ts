@@ -7,5 +7,5 @@ export class Bag{
     description!: string;
     imageUrl!: string;
     origins!:string[];
-    cookTime!: string;
+    workTime!: string;
 }
