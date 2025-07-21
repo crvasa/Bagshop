@@ -47,3 +47,16 @@ form{
     margin: 2rem;
     width: 25rem;
 }
+.complete-btn {
+  background-color: #7b3d3d;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.complete-btn:hover {
+  background-color: #5a2b2b;
+}

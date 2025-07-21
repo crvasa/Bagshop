@@ -1,0 +1,56 @@
+.success-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.checkmark {
+  font-size: 5rem;
+  color: #7b3d3d; /* Usa un colore coerente col tuo tema */
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.return-btn {
+  padding: 10px 20px;
+  background-color: #7b3d3d;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.return-btn:hover {
+  background-color: #5a2b2b;
+}
+.button-container{
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+}
+.buttons{
+    margin: 2rem;
+    width: 25rem;
+}
+.complete-btn {
+  background-color: #7b3d3d;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.complete-btn:hover {
+  background-color: #5a2b2b;
+}

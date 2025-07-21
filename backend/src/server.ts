@@ -4,7 +4,6 @@ dotenv.config();
 import express from "express";
 import cors from "cors";
 import path from "path";
-
 import bagRouter from './routers/bag.router';
 import userRouter from './routers/user.router';
 import orderRouter from './routers/order.router';
@@ -21,6 +20,7 @@ app.use(cors({
   credentials: true,
   origin: ["http://localhost:4200"]
 }));
+
 
 // ROUTES API
 app.use("/api/bags", bagRouter);

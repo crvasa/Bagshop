@@ -16,12 +16,9 @@
 
     <div class="buttons-container">
         <div class="buttons">
-
-<paypal-button
-  [order]="order"
-  (paymentCompleted)="onPaymentCompleted()">
-</paypal-button>
-
+            <button (click)="onCompletePurchase()" class="complete-btn">
+                 Completa acquisto
+            </button>
         </div>
     </div>
 </div>

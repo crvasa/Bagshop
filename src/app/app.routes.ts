@@ -12,6 +12,7 @@ import { PaymentPageComponent } from './components/payment-page/payment-page.com
 import { OrderTrackPageComponent } from './components/order-track-page/order-track-page.component';
 import { ContattiPageComponent } from './components/contatti-page/contatti-page.component';
 import { ChisiamoPageComponent } from './components/chisiamo-page/chisiamo-page.component';
+import { OrderSuccessComponent } from './components/order-success/order-success.component';
 
 
 
@@ -29,6 +30,9 @@ export const appRoutes: Routes = [
   { path: 'loading', component: LoadingComponent },
   { path: 'checkout', component: CheckoutPageComponent, canActivate: [AuthGuard] },
   { path: 'payment', component: PaymentPageComponent, canActivate: [AuthGuard] },
-{ path: 'orders', component: OrderTrackPageComponent, canActivate: [AuthGuard] },
+  { path: 'order-success', component: OrderSuccessComponent },
+  { path: 'orders', component: OrderTrackPageComponent, canActivate: [AuthGuard] },
+
   { path: '**', component: NotFoundComponent }
+
 ];
